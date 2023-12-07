@@ -24,4 +24,11 @@ public class Projectile : MonoBehaviour
 		float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler(0, 0, angle - 90.0f);
 	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		collision.attachedRigidbody.AddForceAtPosition(rigid.velocity * 0.4f, transform.position, ForceMode2D.Impulse);
+
+		Destroy(gameObject);
+	}
 }

@@ -39,7 +39,6 @@ public class BowController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 		float powerPercentage = distanceDelta / maxDragDistance;
 		powerPercentage = Mathf.Clamp(powerPercentage, 0, 1.0f);
 		Vector2 dir = transform.position - mousePos;
-		print(powerPercentage);
 		shooter?.Shoot(dir, powerPercentage);
 	}
 }
