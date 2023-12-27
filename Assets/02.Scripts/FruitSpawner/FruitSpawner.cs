@@ -6,6 +6,7 @@ public class FruitSpawner : MonoBehaviour
 {
     [SerializeField] private Fruit fruitPrefab;
 	[SerializeField] private List<SpawnArea> spawns;
+	[SerializeField] private float spawnTime;
 
 	private float timer;
 
@@ -14,7 +15,7 @@ public class FruitSpawner : MonoBehaviour
 		if (timer <= 0)
 		{
 			SpawnArea spawn = spawns[Random.Range(0, spawns.Count)];
-			timer = 3f;
+			timer = spawnTime;
 			Fruit instance = Instantiate(fruitPrefab, spawn.GetPos(), Quaternion.identity);
 			instance.GetComponent<Rigidbody2D>().AddForce(spawn.GetDirection() * 300f);
 		}

@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		collision.attachedRigidbody.AddForceAtPosition(rigid.velocity * 0.4f, transform.position, ForceMode2D.Impulse);
+		collision.attachedRigidbody.AddForceAtPosition(rigid.velocity * 0.3f, transform.position, ForceMode2D.Impulse);
 
 		Destroy(gameObject);
 	}
